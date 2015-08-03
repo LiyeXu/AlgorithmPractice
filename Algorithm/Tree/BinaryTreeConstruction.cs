@@ -16,34 +16,24 @@ namespace Algorithm.Tree
             IBinaryTree<T> p = tree;
             IBinaryTree<T> h = null;
             IBinaryTree<T> c = null;
+            Action<IBinaryTree<T>> link = node => {
+                if (node == null)
+                    return;
+                if (h == null)
+                {
+                    h = node;
+                    c = h;
+                }
+                else
+                {
+                    c.NextSibling = node;
+                    c = c.NextSibling;
+                }
+            };
             while (p != null)
             {
-                if (p.LeftChild != null)
-                {
-                    if (h == null)
-                    {
-                        h = p.LeftChild;
-                        c = h;
-                    }
-                    else
-                    {
-                        c.NextSibling = p.LeftChild;
-                        c = c.NextSibling;
-                    }
-                }
-                if (p.RightChild != null)
-                {
-                    if (h == null)
-                    {
-                        h = p.RightChild;
-                        c = h;
-                    }
-                    else
-                    {
-                        c.NextSibling = p.RightChild;
-                        c = c.NextSibling;
-                    }
-                }
+                link(p.LeftChild);
+                link(p.RightChild);
                 p = p.NextSibling;
             }
             LinkSiblings(h as BinaryTree<T>);
