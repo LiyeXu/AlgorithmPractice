@@ -50,6 +50,7 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="SinglyLinkedListConstruction.cs" />
     <Compile Include="ArrayIntersectionTest.cs" />
     <Compile Include="BinaryTreeLinkSiblingsTest.cs" />
     <Compile Include="StringReverseTest.cs" />

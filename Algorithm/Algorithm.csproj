@@ -44,6 +44,9 @@
     <Compile Include="Graph\GraphSearch.cs" />
     <Compile Include="Graph\GraphConstruction.cs" />
     <Compile Include="Graph\GraphClone.cs" />
+    <Compile Include="LinkedList\ISinglyLinkedList.cs" />
+    <Compile Include="LinkedList\SinglyLinkedListConstruction.cs" />
+    <Compile Include="LinkedList\SinglyLinkedList.cs" />
     <Compile Include="Resource.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

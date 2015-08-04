@@ -9,6 +9,12 @@ namespace Algorithm.Tree
 {
     public interface IBinaryTree<T>
     {
+        T Payload
+        {
+            get;
+            set;
+        }
+
         IBinaryTree<T> LeftChild
         {
             get;
