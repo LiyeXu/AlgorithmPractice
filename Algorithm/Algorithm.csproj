@@ -45,8 +45,8 @@
     <Compile Include="Graph\GraphConstruction.cs" />
     <Compile Include="Graph\GraphClone.cs" />
     <Compile Include="LinkedList\ISinglyLinkedList.cs" />
-    <Compile Include="LinkedList\SinglyLinkedListConstruction.cs" />
-    <Compile Include="LinkedList\SinglyLinkedList.cs" />
+    <Compile Include="LinkedList\ConceptualSinglyLinkedListConstruction.cs" />
+    <Compile Include="LinkedList\ConceptualSinglyLinkedList.cs" />
     <Compile Include="Resource.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -56,8 +56,8 @@
     <Compile Include="String\StringManipulate.cs" />
     <Compile Include="String\StringCount.cs" />
     <Compile Include="Tree\IBinaryTree.cs" />
-    <Compile Include="Tree\BinaryTreeConstruction.cs" />
-    <Compile Include="Tree\BinaryTree.cs" />
+    <Compile Include="Tree\ConceptualBinaryTreeConstruction.cs" />
+    <Compile Include="Tree\ConceptualBinaryTree.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resource.resx">

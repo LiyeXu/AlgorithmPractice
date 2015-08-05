@@ -9,13 +9,13 @@ using Algorithm.LinkedList;
 namespace Algorithm.UnitTest
 {
     [TestClass]
-    public class SinglyLinkedListConstruction
+    public class ConceptualSinglyLinkedListConstruction
     {
         [TestMethod, TestCategory("LinkedList")]
         public void AddRangeTest()
         {
             int[] data = new[] { 1, 2, 3, 4, 5, 6, 7, 8, 9 };
-            var list = new SinglyLinkedList<int>(0);
+            var list = new ConceptualSinglyLinkedList<int>(0);
             list.AddRange(data);
             Assert.AreEqual(data[2], list.Next.Next.Payload);
         }

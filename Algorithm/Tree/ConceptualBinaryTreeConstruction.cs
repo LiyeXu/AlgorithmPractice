@@ -7,9 +7,9 @@ using Algorithm.Graph;
 
 namespace Algorithm.Tree
 {
-    public static class BinaryTreeConstruction
+    public static class ConceptualBinaryTreeConstruction
     {
-        public static void LinkSiblings<T>(this BinaryTree<T> tree)
+        public static void LinkSiblings<T>(this ConceptualBinaryTree<T> tree)
         {
             if (tree == null)
                 return;
@@ -36,7 +36,7 @@ namespace Algorithm.Tree
                 link(p.RightChild);
                 p = p.NextSibling;
             }
-            LinkSiblings(h as BinaryTree<T>);
+            LinkSiblings(h as ConceptualBinaryTree<T>);
         }
     }
 }

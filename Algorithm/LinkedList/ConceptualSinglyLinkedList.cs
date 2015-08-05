@@ -7,9 +7,9 @@ using Algorithm.Graph;
 
 namespace Algorithm.LinkedList
 {
-    public class SinglyLinkedList<T> : Graph<T>, ISinglyLinkedList<T>
+    public class ConceptualSinglyLinkedList<T> : Graph<T>, ISinglyLinkedList<T>
     {
-        public SinglyLinkedList(T payload)
+        public ConceptualSinglyLinkedList(T payload)
             : base(payload)
         { 
         }
@@ -24,7 +24,7 @@ namespace Algorithm.LinkedList
                 }
                 else
                 {
-                    return base.Neighbors[0] as SinglyLinkedList<T>;
+                    return base.Neighbors[0] as ConceptualSinglyLinkedList<T>;
                 }                
             }
             set

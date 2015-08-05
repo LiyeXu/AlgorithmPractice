@@ -7,9 +7,9 @@ using Algorithm.Graph;
 
 namespace Algorithm.LinkedList
 {
-    public static class SinglyLinkedListConstruction
+    public static class ConceptualSinglyLinkedListConstruction
     {
-        public static void AddRange<T>(this SinglyLinkedList<T> list, IEnumerable<T> range)
+        public static void AddRange<T>(this ConceptualSinglyLinkedList<T> list, IEnumerable<T> range)
         {
             if (range == null)
                 throw new ArgumentNullException("range");
@@ -18,7 +18,7 @@ namespace Algorithm.LinkedList
             ISinglyLinkedList<T> c = list;
             foreach (var item in rest)
             {
-                c.Next = new SinglyLinkedList<T>(item);
+                c.Next = new ConceptualSinglyLinkedList<T>(item);
                 c = c.Next;
             }
             c.Next = null;

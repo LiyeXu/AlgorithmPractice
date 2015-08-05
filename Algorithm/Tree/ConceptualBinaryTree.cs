@@ -7,9 +7,9 @@ using Algorithm.Graph;
 
 namespace Algorithm.Tree
 {
-    public class BinaryTree<T> : Graph<T>, IBinaryTree<T>
+    public class ConceptualBinaryTree<T> : Graph<T>, IBinaryTree<T>
     {
-        public BinaryTree(T payload) : base(payload)
+        public ConceptualBinaryTree(T payload) : base(payload)
         { 
         }
 
