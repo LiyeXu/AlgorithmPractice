@@ -10,7 +10,7 @@ namespace Algorithm.UnitTest
     [TestClass]
     public class StringReverseTest
     {
-        [TestMethod, TestCategory("String")]
+        [TestMethod, TestCategory("String"), TestCategory("Recursion")]
         public void ReverseTest()
         {
             string text;

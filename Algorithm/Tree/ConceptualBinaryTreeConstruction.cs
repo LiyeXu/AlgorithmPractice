@@ -9,6 +9,11 @@ namespace Algorithm.Tree
 {
     public static class ConceptualBinaryTreeConstruction
     {
+        /// <summary>
+        /// Link all tree nodes of the same level with NextSibling property.
+        /// </summary>
+        /// <typeparam name="T">Tree element type.</typeparam>
+        /// <param name="tree">A tree object to be processed.</param>
         public static void LinkSiblings<T>(this ConceptualBinaryTree<T> tree)
         {
             if (tree == null)

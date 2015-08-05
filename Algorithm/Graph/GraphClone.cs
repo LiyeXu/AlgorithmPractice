@@ -8,6 +8,12 @@ namespace Algorithm.Graph
 {
     public static class GraphClone
     {
+        /// <summary>
+        /// Clone a Graph object in BFS order.
+        /// </summary>
+        /// <typeparam name="T">Graph element type.</typeparam>
+        /// <param name="graph">An Graph object to be cloned.</param>
+        /// <returns>A clone of the Graph object.</returns>
         public static Graph<T> BfsClone<T>(this Graph<T> graph)
         {
             // a dict of <vertex, vertex clone>

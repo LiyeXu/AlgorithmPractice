@@ -8,6 +8,11 @@ namespace Algorithm.String
 {
     public static class StringManipulate
     {
+        /// <summary>
+        /// Reverse each chars in a string recursively.
+        /// </summary>
+        /// <param name="str">A string to be reverted.</param>
+        /// <returns>The reverted string.</returns>
         public static System.String Reverse(this System.String str)
         {
             if (str == null || str.Length <= 1)
