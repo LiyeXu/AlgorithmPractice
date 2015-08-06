@@ -9,7 +9,7 @@ using Algorithm.LinkedList;
 namespace Algorithm.UnitTest
 {
     [TestClass]
-    public class ConceptualSinglyLinkedListConstruction
+    public class ConceptualSinglyLinkedListConstructionTest
     {
         [TestMethod, TestCategory("LinkedList")]
         public void AddRangeTest()
