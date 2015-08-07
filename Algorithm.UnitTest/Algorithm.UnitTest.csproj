@@ -50,6 +50,7 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="IListCombinationTest.cs" />
     <Compile Include="ConceptualSinglyLinkedListManipulationTest.cs" />
     <Compile Include="ConceptualSinglyLinkedListConstructionTest.cs" />
     <Compile Include="ArrayIntersectionTest.cs" />
