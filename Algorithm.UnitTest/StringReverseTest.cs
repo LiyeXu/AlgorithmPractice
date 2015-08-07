@@ -10,16 +10,17 @@ namespace Algorithm.UnitTest
     [TestClass]
     public class StringReverseTest
     {
-        [TestMethod, TestCategory("String"), TestCategory("Recursion")]
+        [TestMethod, TestCategory("String")]
         public void ReverseTest()
         {
-            string text;
-            string actual;
-            text = "123456789";
-            actual = text.Reverse();
-            //actual = new string(text.Reverse<char>().ToArray());
-            Debug.WriteLine(actual);
-            Assert.AreEqual("987654321", actual);
+            string text = "123456789";
+            string actual1 = text.Reverse();
+            string actual2 = text.RecursivelyReverse();
+            //actual1 = new string(text.Reverse<char>().ToArray());
+            Debug.WriteLine(actual1);
+            Debug.WriteLine(actual2);
+            Assert.AreEqual("987654321", actual1);
+            Assert.AreEqual("987654321", actual2);
         }
     }
 }

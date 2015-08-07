@@ -8,7 +8,7 @@ using Algorithm.String;
 namespace Algorithm.UnitTest
 {
     [TestClass]
-    public class StringCountTest
+    public class StringCheckingTest
     {
         [TestMethod, TestCategory("String")]
         public void RemoveTest()
@@ -18,6 +18,15 @@ namespace Algorithm.UnitTest
             text = "     test.one  two   three     .";
             words = text.CountWords(' ', ',', '.');
             Assert.AreEqual(4L, words);
+        }
+
+        [TestMethod, TestCategory("String")]
+        public void IsAllCharUniqueTest()
+        {
+            bool actual = "abcdef12345&\t\b\0".HasDuplicateChar();
+            Assert.IsFalse(actual);
+            actual = "abcdef12345&\t\b\0a".HasDuplicateChar();
+            Assert.IsTrue(actual);
         }
     }
 }

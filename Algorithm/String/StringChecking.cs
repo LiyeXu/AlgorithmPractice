@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Algorithm.String
 {
-    public static class StringCount
+    public static class StringChecking
     {
         /// <summary>
         /// Count the words in a string.
@@ -31,6 +31,27 @@ namespace Algorithm.String
                 }
             }
             return count;
+        }
+
+        /// <summary>
+        /// Check if a string contains duplicate characters.
+        /// </summary>
+        /// <param name="str">A string to be checked.</param>
+        /// <returns>Returns false if all characters in the string is unique, otherwise true.</returns>
+        public static bool HasDuplicateChar(this System.String str)
+        {
+            if (System.String.IsNullOrEmpty(str))
+            {
+                throw new ArgumentOutOfRangeException("str");
+            }
+            bool[] occur = Enumerable.Repeat(element: false, count: 256).ToArray();
+            foreach (char c in str)
+            {
+                if (occur[c])
+                    return true;
+                occur[c] = true;
+            }
+            return false;
         }
     }
 }

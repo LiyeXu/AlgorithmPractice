@@ -33,6 +33,7 @@ namespace Algorithm.LinkedList
             list.Next = prior;
             second.Next = current;
             current.Next = null;
+            // swap the payloads back
             T tmp = list.Payload;
             list.Payload = current.Payload;
             current.Payload = tmp;

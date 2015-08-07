@@ -55,7 +55,7 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="String\StringManipulate.cs" />
-    <Compile Include="String\StringCount.cs" />
+    <Compile Include="String\StringChecking.cs" />
     <Compile Include="Tree\IBinaryTree.cs" />
     <Compile Include="Tree\ConceptualBinaryTreeConstruction.cs" />
     <Compile Include="Tree\ConceptualBinaryTree.cs" />
