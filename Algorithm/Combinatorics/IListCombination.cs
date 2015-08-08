@@ -8,6 +8,13 @@ namespace Algorithm.Combinatorics
 {
     public static class IListCombination
     {
+        /// <summary>
+        /// Get combinations C(n, m) of a list of elements.
+        /// </summary>
+        /// <typeparam name="T">List element type.</typeparam>
+        /// <param name="list">A list of elements to be combined.</param>
+        /// <param name="n">Number of element to be included in each combination.</param>
+        /// <returns>An IEnumerable of combinations</returns>
         public static IEnumerable<IList<T>> Combine<T>(this IList<T> list, int n)
         {
             IList<IList<T>> result = new List<IList<T>>();
@@ -35,6 +42,13 @@ namespace Algorithm.Combinatorics
             return result;
         }
 
+        /// <summary>
+        /// Get permutations P(n, m) of a list of elements.
+        /// </summary>
+        /// <typeparam name="T">List element type.</typeparam>
+        /// <param name="list">A list of elements to be permuted.</param>
+        /// <param name="n">Number of element to be included in each permutation.</param>
+        /// <returns>An IEnumerable of permutations</returns>
         public static IEnumerable<IList<T>> Permute<T>(this IList<T> list, int n)
         {
             if (n == 0)
