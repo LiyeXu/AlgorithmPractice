@@ -55,5 +55,19 @@ namespace Algorithm.String
             System.String reversed = buffer.ToString();
             return reversed;
         }
+
+        /// <summary>
+        /// Rotate a string by n steps.
+        /// </summary>
+        /// <param name="str">A string to be rotated.</param>
+        /// <param name="n">The rotate steps.</param>
+        /// <returns>The rotated string.</returns>
+        public static System.String Rotate(this System.String str, int n)
+        {
+            string s1 = str.Reverse();
+            string s2 = s1.Substring(0, n).Reverse();
+            string s3 = s1.Substring(n).Reverse();
+            return s2 + s3;
+        }
     }
 }

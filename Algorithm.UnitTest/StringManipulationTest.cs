@@ -8,7 +8,7 @@ using Algorithm.String;
 namespace Algorithm.UnitTest
 {
     [TestClass]
-    public class StringReverseTest
+    public class StringManipulationTest
     {
         [TestMethod, TestCategory("String")]
         public void ReverseTest()
@@ -21,6 +21,15 @@ namespace Algorithm.UnitTest
             Debug.WriteLine(actual2);
             Assert.AreEqual("987654321", actual1);
             Assert.AreEqual("987654321", actual2);
+        }
+
+        [TestMethod, TestCategory("String")]
+        public void RotateTest()
+        {
+            string text = "123456789";
+            string actual = text.Rotate(4);
+            Debug.WriteLine(actual);
+            Assert.AreEqual("678912345", actual);
         }
     }
 }
