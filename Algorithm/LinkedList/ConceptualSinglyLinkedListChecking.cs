@@ -18,6 +18,7 @@ namespace Algorithm.LinkedList
         public static ISinglyLinkedList<T> FindLoopNode<T>(this ConceptualSinglyLinkedList<T> list)
         {
             var head = list as ISinglyLinkedList<T>;
+            // detect loop existence
             var p = head.Next;
             if (p == null)
                 return null;
@@ -29,15 +30,35 @@ namespace Algorithm.LinkedList
                 if (p == q)
                     break;
             }
+            // no loop
             if (p != q)
                 return null;
-            q = head;
+            // find the looping node
+            q = head;            
             while (p != q)
             {
                 p = p.Next;
                 q = q.Next;
             }
             return p;
+        }
+
+        public static ISinglyLinkedList<T> FindLastNthNode<T>(this ConceptualSinglyLinkedList<T> list, int n)
+        {
+            var head = list as ISinglyLinkedList<T>;
+            var p = head;
+            var q = head;
+            int count = 1;
+            while (p.Next != null)
+            {
+                p = p.Next;
+                count++;
+                if (count > n)
+                    q = q.Next;
+            }
+            if (count < n)
+                return null;
+            return q;
         }
     }
 }

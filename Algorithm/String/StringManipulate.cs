@@ -18,15 +18,15 @@ namespace Algorithm.String
             if (str == null || str.Length <= 1)
                 return str;
             var buffer = new StringBuilder(str.Length);
-            ReverseImpl(str, 0, buffer);
+            RecursivelyReverseImpl(str, 0, buffer);
             return buffer.ToString();
         }
 
-        private static void ReverseImpl(System.String str, int idx, StringBuilder buffer)
+        private static void RecursivelyReverseImpl(System.String str, int idx, StringBuilder buffer)
         {
             if (idx == str.Length)
                 return;
-            ReverseImpl(str, idx+1, buffer);
+            RecursivelyReverseImpl(str, idx + 1, buffer);
             buffer.Append(str[idx]);
         }
 
