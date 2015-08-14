@@ -7,7 +7,7 @@ using Algorithm.Graph;
 
 namespace Algorithm.LinkedList
 {
-    public static class ConceptualSinglyLinkedListConstruction
+    public static class SinglyLinkedListConstruction
     {
         /// <summary>
         /// Add a range of elements in to a linked list.

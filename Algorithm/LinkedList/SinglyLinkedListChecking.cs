@@ -7,7 +7,7 @@ using Algorithm.Graph;
 
 namespace Algorithm.LinkedList
 {
-    public static class ConceptualSinglyLinkedListChecking
+    public static class SinglyLinkedListChecking
     {
         /// <summary>
         /// Find the loop node of a linked list if any.
@@ -15,11 +15,10 @@ namespace Algorithm.LinkedList
         /// <typeparam name="T">The linked list element type.</typeparam>
         /// <param name="list">A linked list to be checked.</param>
         /// <returns>Returns the looping node if any, otherwise returns null.</returns>
-        public static ISinglyLinkedList<T> FindLoopNode<T>(this ConceptualSinglyLinkedList<T> list)
+        public static ISinglyLinkedList<T> FindLoopNode<T>(this ISinglyLinkedList<T> list)
         {
-            var head = list as ISinglyLinkedList<T>;
             // detect loop existence
-            var p = head.Next;
+            var p = list.Next;
             if (p == null)
                 return null;
             var q = p.Next;
@@ -34,7 +33,7 @@ namespace Algorithm.LinkedList
             if (p != q)
                 return null;
             // find the looping node
-            q = head;            
+            q = list;            
             while (p != q)
             {
                 p = p.Next;
@@ -43,11 +42,10 @@ namespace Algorithm.LinkedList
             return p;
         }
 
-        public static ISinglyLinkedList<T> FindLastNthNode<T>(this ConceptualSinglyLinkedList<T> list, int n)
+        public static ISinglyLinkedList<T> FindLastNthNode<T>(this ISinglyLinkedList<T> list, int n)
         {
-            var head = list as ISinglyLinkedList<T>;
-            var p = head;
-            var q = head;
+            var p = list;
+            var q = list;
             int count = 1;
             while (p.Next != null)
             {

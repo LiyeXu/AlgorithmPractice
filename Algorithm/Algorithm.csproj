@@ -44,10 +44,10 @@
     <Compile Include="Graph\GraphSearch.cs" />
     <Compile Include="Graph\GraphConstruction.cs" />
     <Compile Include="Graph\GraphClone.cs" />
-    <Compile Include="LinkedList\ConceptualSinglyLinkedListChecking.cs" />
-    <Compile Include="LinkedList\ConceptualSinglyLinkedListManipulation.cs" />
+    <Compile Include="LinkedList\SinglyLinkedListChecking.cs" />
+    <Compile Include="LinkedList\SinglyLinkedListManipulation.cs" />
     <Compile Include="LinkedList\ISinglyLinkedList.cs" />
-    <Compile Include="LinkedList\ConceptualSinglyLinkedListConstruction.cs" />
+    <Compile Include="LinkedList\SinglyLinkedListConstruction.cs" />
     <Compile Include="LinkedList\ConceptualSinglyLinkedList.cs" />
     <Compile Include="Combinatorics\IListCombination.cs" />
     <Compile Include="Resource.Designer.cs">
@@ -58,8 +58,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="String\StringManipulate.cs" />
     <Compile Include="String\StringChecking.cs" />
+    <Compile Include="Tree\BinaryTreeChecking.cs" />
     <Compile Include="Tree\IBinaryTree.cs" />
-    <Compile Include="Tree\ConceptualBinaryTreeConstruction.cs" />
+    <Compile Include="Tree\BinaryTreeConstruction.cs" />
     <Compile Include="Tree\ConceptualBinaryTree.cs" />
   </ItemGroup>
   <ItemGroup>

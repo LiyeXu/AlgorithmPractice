@@ -7,14 +7,14 @@ using Algorithm.Graph;
 
 namespace Algorithm.Tree
 {
-    public static class ConceptualBinaryTreeConstruction
+    public static class BinaryTreeConstruction
     {
         /// <summary>
         /// Link all tree nodes of the same level with NextSibling property.
         /// </summary>
         /// <typeparam name="T">Tree element type.</typeparam>
         /// <param name="tree">A tree object to be processed.</param>
-        public static void LinkSiblings<T>(this ConceptualBinaryTree<T> tree)
+        public static void LinkSiblings<T>(this IBinaryTree<T> tree)
         {
             if (tree == null)
                 return;
@@ -41,7 +41,7 @@ namespace Algorithm.Tree
                 link(p.RightChild);
                 p = p.NextSibling;
             }
-            LinkSiblings(h as ConceptualBinaryTree<T>);
+            LinkSiblings(h);
         }
     }
 }

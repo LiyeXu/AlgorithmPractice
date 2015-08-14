@@ -7,14 +7,14 @@ using Algorithm.Graph;
 
 namespace Algorithm.LinkedList
 {
-    public static class ConceptualSinglyLinkedListManipulation
+    public static class SinglyLinkedListManipulation
     {
         /// <summary>
         /// Reverse a linked list.
         /// </summary>
         /// <typeparam name="T">Linked list element type.</typeparam>
         /// <param name="list">A linked list to be reversed.</param>
-        public static void Reverse<T>(this ConceptualSinglyLinkedList<T> list)
+        public static void Reverse<T>(this ISinglyLinkedList<T> list)
         {
             if (list == null)
                 return;
