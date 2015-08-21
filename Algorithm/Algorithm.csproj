@@ -32,6 +32,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Numerics" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -50,6 +51,7 @@
     <Compile Include="LinkedList\SinglyLinkedListConstruction.cs" />
     <Compile Include="LinkedList\ConceptualSinglyLinkedList.cs" />
     <Compile Include="Combinatorics\IListCombination.cs" />
+    <Compile Include="Numerics\Series.cs" />
     <Compile Include="Resource.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
