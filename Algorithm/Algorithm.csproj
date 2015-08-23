@@ -51,6 +51,7 @@
     <Compile Include="LinkedList\SinglyLinkedListConstruction.cs" />
     <Compile Include="LinkedList\ConceptualSinglyLinkedList.cs" />
     <Compile Include="Combinatorics\IListCombination.cs" />
+    <Compile Include="Matrix\MultiDemensionalArrayExtensions.cs" />
     <Compile Include="Numerics\Series.cs" />
     <Compile Include="Resource.Designer.cs">
       <AutoGen>True</AutoGen>
