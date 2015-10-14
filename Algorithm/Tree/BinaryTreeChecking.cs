@@ -19,7 +19,7 @@ namespace Algorithm.Tree
             var R = tree.RightChild.FindLowestCommonAncestor(left, right);
             if (L != null && R != null)
                 return tree;
-            return L != null ? L : R;
+            return L ?? R;
         }
     }
 }

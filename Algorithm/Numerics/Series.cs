@@ -10,6 +10,24 @@ namespace Algorithm.Numerics
     public static class Series
     {
         /// <summary>
+        /// Get the fact n! of a given integer
+        /// </summary>
+        /// <param name="n"></param>
+        /// <returns>returns fact(n)</returns>
+        public static BigInteger Fact(int n)
+        {
+            if (n < 0)
+                throw new ArgumentOutOfRangeException("n");
+            BigInteger fact = 1;
+            while(n > 1)
+            {
+                fact *= new BigInteger(n);
+                n--;
+            }
+            return fact;
+        }
+
+        /// <summary>
         /// Get the Nth element of the Fibbonacci series in a definitive way
         /// </summary>
         /// <param name="n">The ordinal number of the element</param>

@@ -16,6 +16,7 @@ namespace Algorithm.UnitTest
         public void FibbonacciTest()
         {
             var f = Series.Fibbonacci(65536);
+            Assert.AreEqual(Series.Fibbonacci2(65536), f);
             Debug.WriteLine(f);
         }
 

@@ -31,15 +31,7 @@ namespace Algorithm.Combinatorics
                     result.Add(entry);
                 }
             }
-            for (int i = 0; i < result.Count; i++)
-            {
-                if (result[i].Count != n)
-                {
-                    result.RemoveAt(i);
-                    i--;
-                }
-            }
-            return result;
+            return result.Where(i => i.Count == n);
         }
 
         /// <summary>
@@ -65,6 +57,31 @@ namespace Algorithm.Combinatorics
                 }
                 list.Insert(i, cur);
             }
+        }
+
+        /// <summary>
+        /// Get all sub sets of a list of elements.
+        /// </summary>
+        /// <typeparam name="T">List element type.</typeparam>
+        /// <param name="list">A list of elements to be subseted.</param>
+        /// <returns>An IEnumerable of all subsets</returns>
+        public static IEnumerable<IList<T>> Subsets<T>(this IList<T> list)
+        {
+            IList<T> empty = new List<T>();
+            IList<IList<T>> result = new List<IList<T>>();
+            result.Add(empty);
+            foreach (var item in list)
+            {
+                IList<IList<T>> buffer = new List<IList<T>>();
+                foreach (IList<T> subset in result.Reverse())
+                {
+                    var tmp = new List<T>(subset);
+                    tmp.Add(item);
+                    buffer.Add(tmp);
+                }
+                result = result.Concat(buffer).ToList();
+            }
+            return result;
         }
     }
 }
