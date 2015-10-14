@@ -52,7 +52,7 @@
     <Compile Include="LinkedList\ConceptualSinglyLinkedList.cs" />
     <Compile Include="Combinatorics\IListCombination.cs" />
     <Compile Include="Matrix\MultiDemensionalArrayExtensions.cs" />
-    <Compile Include="Numerics\Series.cs" />
+    <Compile Include="Numerics\Calculate.cs" />
     <Compile Include="Resource.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

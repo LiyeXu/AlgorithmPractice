@@ -26,7 +26,7 @@ namespace Algorithm.UnitTest
                 }
                 Debug.WriteLine("");
             }
-            Assert.AreEqual(Series.Fact(data.Count), new BigInteger(actual.Count()));
+            Assert.AreEqual(Calculate.Fact(data.Count), new BigInteger(actual.Count()));
         }
 
         [TestMethod, TestCategory("Combinatorics")]

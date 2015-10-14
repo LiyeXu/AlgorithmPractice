@@ -15,8 +15,8 @@ namespace Algorithm.UnitTest
         [TestMethod, TestCategory("Numerics")]
         public void FibbonacciTest()
         {
-            var f = Series.Fibbonacci(65536);
-            Assert.AreEqual(Series.Fibbonacci2(65536), f);
+            var f = Calculate.Fibbonacci(65536);
+            Assert.AreEqual(Calculate.Fibbonacci2(65536), f);
             Debug.WriteLine(f);
         }
 
@@ -26,7 +26,7 @@ namespace Algorithm.UnitTest
             double phi = 0;
             for (int i = 1; i < 10; i++)
             {
-                phi = Series.Phi((int)Math.Pow(2,i));                
+                phi = Calculate.Phi((int)Math.Pow(2,i));                
             }
             Assert.AreEqual(0, phi - (1 + Math.Sqrt(5)) / 2);
         }

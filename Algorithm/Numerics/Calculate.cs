@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Algorithm.Numerics
 {
-    public static class Series
+    public static class Calculate
     {
         /// <summary>
         /// Get the fact n! of a given integer
@@ -62,7 +62,7 @@ namespace Algorithm.Numerics
             if (n <= 0)
                 throw new ArgumentOutOfRangeException("n");
             BigInteger[,] m = new BigInteger[,] { { 1, 1 }, { 1, 0 } };
-            BigInteger[,] result = DoMatrixPower(m, n - 1);
+            BigInteger[,] result = Power(m, n - 1);
             return result[0, 0];
         }
 
@@ -76,30 +76,45 @@ namespace Algorithm.Numerics
             if (precision <= 0)
                 throw new ArgumentOutOfRangeException("precision");
             BigInteger[,] m = new BigInteger[,] { { 1, 1 }, { 1, 0 } };
-            BigInteger[,] result = DoMatrixPower(m, precision - 1);
+            BigInteger[,] result = Power(m, precision - 1);
             return (double)result[0, 0]/(double)result[0, 1];
         }
 
-        private static BigInteger[,] DoMatrixPower(BigInteger[,] m, int n)
+        public static BigInteger Power(BigInteger x, int n)
+        {
+            if (n == 1)
+                return x;
+            if ((n & 1) == 0)
+            {
+                var root = Power(x, n / 2);
+                return root * root;
+            }
+            else
+            {
+                return Power(x, n - 1) * x;
+            } 
+        }
+
+        public static BigInteger[,] Power(BigInteger[,] m, int n)
         {
             if (n == 1)
                 return m;
             if ((n & 1) == 0)
             {
-                var root = DoMatrixPower(m, n / 2);
-                BigInteger[,] result = Rank2MatrixProduct(root, root);
+                var root = Power(m, n / 2);
+                BigInteger[,] result = Product(root, root);
                 return result;
             }
             else
             {
-                var root = DoMatrixPower(m, (n - 1) / 2);
-                BigInteger[,] result = Rank2MatrixProduct(root, root);
-                result = Rank2MatrixProduct(result, m);
+                var root = Power(m, (n - 1) / 2);
+                BigInteger[,] result = Product(root, root);
+                result = Product(result, m);
                 return result;
             }
         }
 
-        private static BigInteger[,] Rank2MatrixProduct(BigInteger[,] a, BigInteger[,] b)
+        public static BigInteger[,] Product(BigInteger[,] a, BigInteger[,] b)
         {
             BigInteger[,] result = new BigInteger[2, 2];
             result[0, 0] = a[0, 0] * b[0, 0] + a[0, 1] * b[1, 0];
