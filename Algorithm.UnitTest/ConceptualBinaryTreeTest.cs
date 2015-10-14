@@ -8,8 +8,20 @@ using Algorithm.Tree;
 namespace Algorithm.UnitTest
 {
     [TestClass]
-    public class ConceptualBinaryTreeLinkSiblingsTest
+    public class ConceptualBinaryTreeTest
     {
+        [TestMethod, TestCategory("Tree")]
+        public void FindLCATest()
+        {
+            var tree = new ConceptualBinaryTree<string>("L0_root");
+            tree.LeftChild = new ConceptualBinaryTree<string>("L1_0");
+            tree.RightChild = new ConceptualBinaryTree<string>("L1_1");
+            tree.LeftChild.RightChild = new ConceptualBinaryTree<string>("L2_0");
+            tree.RightChild.RightChild = new ConceptualBinaryTree<string>("L2_1");
+            var root = tree.FindLowestCommonAncestor(tree.LeftChild.RightChild, tree.RightChild.RightChild);
+            Assert.AreEqual(tree, root);
+        }
+
         [TestMethod, TestCategory("Tree")]
         public void LinkSiblingsTest()
         {
