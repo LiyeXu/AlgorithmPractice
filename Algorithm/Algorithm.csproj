@@ -62,6 +62,7 @@
     <Compile Include="String\StringManipulate.cs" />
     <Compile Include="String\StringChecking.cs" />
     <Compile Include="Tree\BinaryTreeChecking.cs" />
+    <Compile Include="Tree\BinarySearchTree.cs" />
     <Compile Include="Tree\IBinaryTree.cs" />
     <Compile Include="Tree\BinaryTreeConstruction.cs" />
     <Compile Include="Tree\ConceptualBinaryTree.cs" />

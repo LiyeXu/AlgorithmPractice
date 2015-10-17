@@ -18,30 +18,32 @@ namespace Algorithm.Tree
         {
             if (tree == null)
                 return;
-            IBinaryTree<T> p = tree;
-            IBinaryTree<T> h = null;
-            IBinaryTree<T> c = null;
+            IBinaryTree<T> parent = tree;
+            IBinaryTree<T> head = null;
+            IBinaryTree<T> current = null;
             Action<IBinaryTree<T>> link = node => {
                 if (node == null)
                     return;
-                if (h == null)
+                if (head == null)
                 {
-                    h = node;
-                    c = h;
+                    head = node;
+                    current = head;
                 }
                 else
                 {
-                    c.NextSibling = node;
-                    c = c.NextSibling;
+                    current.NextSibling = node;
+                    current = current.NextSibling;
                 }
             };
-            while (p != null)
+            while (parent != null)
             {
-                link(p.LeftChild);
-                link(p.RightChild);
-                p = p.NextSibling;
+                link(parent.LeftChild);
+                link(parent.RightChild);
+                parent = parent.NextSibling;
             }
-            LinkSiblings(h);
+            LinkSiblings(head);
         }
+
+
     }
 }
