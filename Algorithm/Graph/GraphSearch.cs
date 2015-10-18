@@ -13,11 +13,11 @@ namespace Algorithm.Graph
         /// </summary>
         /// <typeparam name="T">Graph element type</typeparam>
         /// <param name="graph">A Graph object to be visited</param>
-        /// <param name="isVisited">A predictor to check if a given vertex is visited already</param>
         /// <param name="vertexAction">Vertex visiting action</param>
         /// <param name="edgeAction">Edge visiting action</param>
-        public static void Bfs<T>(this Graph<T> graph, Func<Graph<T>, bool> isVisited, Action<Graph<T>> vertexAction, Action<Graph<T>, Graph<T>> edgeAction)
+        public static void Bfs<T>(this Graph<T> graph, Action<Graph<T>> vertexAction, Action<Graph<T>, Graph<T>> edgeAction)
         {
+            var visitedSet = new HashSet<Graph<T>>();
             var queue = new Queue<Graph<T>>();
             Graph<T> v = graph;
             vertexAction(v);
@@ -27,9 +27,10 @@ namespace Algorithm.Graph
                 var c = queue.Dequeue();
                 foreach (var n in c.Neighbors)
                 {
-                    if (!isVisited(n))
+                    if (!visitedSet.Contains(n))
                     {
                         vertexAction(n);
+                        visitedSet.Add(n);
                         queue.Enqueue(n);
                     }
                     edgeAction(c, n);

@@ -53,5 +53,77 @@ namespace Algorithm.String
             }
             return false;
         }
+        
+        public static int IndexOfRabinKarp(this System.String str, System.String s)
+        {
+            if (string.IsNullOrEmpty(s))
+                return 0;
+            int w = s.Length;
+            if (str.Length < w)
+                return -1;
+            int patternHash = Hash(s, 0, s.Length);
+            int n = str.Length - w + 1;
+            int hash = -1;
+            for (int i = 0; i < n; i++)
+            {
+                hash = Hash(str, i, i + w, hash);
+                if (hash != patternHash)
+                    continue;
+                int j = 0;
+                while (j < w)
+                {
+                    if (str[i+j] != s[j])
+                        break;
+                    j++;
+                }
+                if (j == w)
+                    return i;
+            }            
+            return -1;
+        }
+
+        private const int DefaultHashAlpha = 10;
+
+        public static int Hash(string s, int start, int end)
+        {
+            if (start < 0 || start >= s.Length || start > end)
+                throw new ArgumentOutOfRangeException("start");
+            if (end < 0 || end > s.Length)
+                throw new ArgumentOutOfRangeException("end");
+            int result = (int)s[start];
+            int alpha = 1;
+            for (int i = start + 1; i < end; i++)
+            {
+                alpha *= DefaultHashAlpha;
+                result += alpha * s[i];
+            }
+            return result;
+        }
+
+        private static Dictionary<int, int> powerCache = new Dictionary<int, int>();
+
+        public static int Hash(string s, int start, int end, int priorHash)
+        {
+            if (priorHash == -1)
+                return Hash(s, start, end);
+            if (start < 1 || start >= s.Length || start > end)
+                throw new ArgumentOutOfRangeException("start");
+            if (end < 1 || end > s.Length)
+                throw new ArgumentOutOfRangeException("end");
+            int result = priorHash;
+            result -= (int)s[start - 1];
+            result /= DefaultHashAlpha;
+            int exp = end - start - 1;
+            int p = 0;
+            if (powerCache.ContainsKey(exp))
+                p = powerCache[exp];
+            else
+            {
+                p = (int)Math.Pow(DefaultHashAlpha, exp);
+                powerCache.Add(exp, p);
+            }
+            result += p * s[end - 1];
+            return result;
+        }
     }
 }

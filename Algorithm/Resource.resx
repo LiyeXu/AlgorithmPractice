@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Graph_Edge_Created" xml:space="preserve">
-    <value>{0} is linked to {1} successfully.</value>
+    <value>{0} is linked to {1}.</value>
   </data>
   <data name="Graph_Edge_Existed" xml:space="preserve">
     <value>{0} had been linked to {1} already!</value>

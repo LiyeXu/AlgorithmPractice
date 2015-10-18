@@ -20,7 +20,6 @@ namespace Algorithm.Graph
             var clones = new Dictionary<Graph<T>, Graph<T>>();
             // BFS
             graph.Bfs(
-                isVisited: v => clones.ContainsKey(v),
                 vertexAction: v =>
                 {
                     var c = new Graph<T>(v.Payload);
