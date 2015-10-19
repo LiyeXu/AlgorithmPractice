@@ -37,9 +37,9 @@ namespace Algorithm.UnitTest
             string patternMismatching = "abc";
             string patternMatching = "456";
 
-            int hash = StringChecking.Hash(text, 3, 6);
-            int adjacencyHash = StringChecking.Hash(text, 3, 6, StringChecking.Hash(text, 2, 5));
-            int patternHash = StringChecking.Hash(patternMatching, 0, patternMatching.Length);
+            int hash = text.Hash(3, 6);
+            int adjacencyHash = text.Hash(3, 6, StringChecking.Hash(text, 2, 5));
+            int patternHash = patternMatching.Hash(0, patternMatching.Length);
             Debug.WriteLine("hash:", hash);
             Debug.WriteLine("adjacency hash:", adjacencyHash);
             Debug.WriteLine("pattern hash:", patternHash);

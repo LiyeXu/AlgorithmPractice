@@ -7,7 +7,7 @@ using Algorithm.Graph;
 
 namespace Algorithm.Tree
 {
-    public static class BinaryTreeChecking
+    public static class BinaryTreeSearching
     {
         /// <summary>
         /// Find the lowest common ancestor node of two given nodes of a tree.
@@ -28,6 +28,33 @@ namespace Algorithm.Tree
             if (L != null && R != null)
                 return tree;
             return L ?? R;
+        }
+
+        public static void TraverseInOrder<T>(this IBinaryTree<T> tree, Action<IBinaryTree<T>> action)
+        {
+            if(tree == null)
+                return;
+            tree.LeftChild.TraverseInOrder(action);
+            action(tree);
+            tree.RightChild.TraverseInOrder(action);
+        }
+
+        public static void TraversePreOrder<T>(this IBinaryTree<T> tree, Action<IBinaryTree<T>> action)
+        {
+            if (tree == null)
+                return;
+            action(tree);
+            tree.LeftChild.TraverseInOrder(action);
+            tree.RightChild.TraverseInOrder(action);
+        }
+
+        public static void TraversePostOrder<T>(this IBinaryTree<T> tree, Action<IBinaryTree<T>> action)
+        {
+            if (tree == null)
+                return;
+            tree.LeftChild.TraverseInOrder(action);
+            tree.RightChild.TraverseInOrder(action);
+            action(tree);
         }
     }
 }

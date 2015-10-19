@@ -9,9 +9,9 @@ namespace Algorithm.String
     public static class StringChecking
     {
         /// <summary>
-        /// Count the words in a string.
+        /// Count the words in the current Sytem.String object.
         /// </summary>
-        /// <param name="str">A string to be counted.</param>
+        /// <param name="str">The current string object.</param>
         /// <param name="separators">Word separators array.</param>
         /// <returns>The number of words in the string.</returns>
         public static int CountWords(this System.String str, params char[] separators)
@@ -34,9 +34,9 @@ namespace Algorithm.String
         }
 
         /// <summary>
-        /// Check if a string contains duplicate characters.
+        /// Check if the current System.String object contains duplicate characters.
         /// </summary>
-        /// <param name="str">A string to be checked.</param>
+        /// <param name="str">The current string object.</param>
         /// <returns>Returns false if all characters in the string is unique, otherwise true.</returns>
         public static bool HasDuplicateChar(this System.String str)
         {
@@ -54,6 +54,12 @@ namespace Algorithm.String
             return false;
         }
         
+        /// <summary>
+        /// Reports the zero-based index of the first occurrence of the specified string in the current System.String object.
+        /// </summary>
+        /// <param name="str">The current string object.</param>
+        /// <param name="s">The string to be searched.</param>
+        /// <returns>Returns the index of the first occurrence if any, otherwise returns -1.</returns>
         public static int IndexOfRabinKarp(this System.String str, System.String s)
         {
             if (string.IsNullOrEmpty(s))
@@ -61,12 +67,12 @@ namespace Algorithm.String
             int w = s.Length;
             if (str.Length < w)
                 return -1;
-            int patternHash = Hash(s, 0, s.Length);
+            int patternHash = s.Hash(0, s.Length);
             int n = str.Length - w + 1;
             int hash = -1;
             for (int i = 0; i < n; i++)
             {
-                hash = Hash(str, i, i + w, hash);
+                hash = str.Hash(i, i + w, hash);
                 if (hash != patternHash)
                     continue;
                 int j = 0;
@@ -84,7 +90,14 @@ namespace Algorithm.String
 
         private const int DefaultHashAlpha = 10;
 
-        public static int Hash(string s, int start, int end)
+        /// <summary>
+        /// Get the hash code of a segment of a specified string.
+        /// </summary>
+        /// <param name="s">The whole string object.</param>
+        /// <param name="start">The start index of the string segment to be hashed.</param>
+        /// <param name="end">The end index (last + 1) of the string segment to be hashed.</param>
+        /// <returns>The hash code of the string segment.</returns>
+        public static int Hash(this System.String s, int start, int end)
         {
             if (start < 0 || start >= s.Length || start > end)
                 throw new ArgumentOutOfRangeException("start");
@@ -102,7 +115,15 @@ namespace Algorithm.String
 
         private static Dictionary<int, int> powerCache = new Dictionary<int, int>();
 
-        public static int Hash(string s, int start, int end, int priorHash)
+        /// <summary>
+        /// Get the hash code of a segment of a specified string s[i:j] based on the hash code of its predeccessor s[i-1:j-1].
+        /// </summary>
+        /// <param name="s">The while string object.</param>
+        /// <param name="start">The start index of the string segment to be hashed.</param>
+        /// <param name="end">The end index (last + 1) of the string segment to be hashed.</param>
+        /// <param name="priorHash">The hash code of the predeccessor.</param>
+        /// <returns>The hash code of the string segment.</returns>
+        public static int Hash(this System.String s, int start, int end, int priorHash)
         {
             if (priorHash == -1)
                 return Hash(s, start, end);
