@@ -40,7 +40,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Array\ArrayIntersection.cs" />
+    <Compile Include="Array\ArrayExtensions.cs" />
     <Compile Include="Graph\Graph.cs" />
     <Compile Include="Graph\GraphSearch.cs" />
     <Compile Include="Graph\GraphConstruction.cs" />

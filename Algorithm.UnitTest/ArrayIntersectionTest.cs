@@ -16,7 +16,7 @@ namespace Algorithm.UnitTest
             int[] lhs = new[] { 1, 2, 3, 4, 5, 6, 7, 8, 9 };
             int[] rhs = new[] { 1, 3, 5, 7, 9 };
             //var intersection = lhs.GetIntersection(rhs);
-            var intersection = rhs.GetIntersection(lhs);
+            var intersection = rhs.GetIntersection2(lhs);
             int idx = 0;
             foreach (var i in intersection)
             {
