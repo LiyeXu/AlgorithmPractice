@@ -79,20 +79,20 @@ namespace Algorithm.Array
         /// Search specified element in an array
         /// </summary>
         /// <typeparam name="T">The element type of the array.</typeparam>
-        /// <param name="a">The array to be searched.</param>
+        /// <param name="array">The array to be searched.</param>
         /// <param name="x">The target element.</param>
         /// <param name="isSorted">Indicating if the array object is sorted already.</param>
         /// <returns>Returns a zero-based index of the target element, or otherwise if not found returns -1.</returns>
-        public static int BinarySearch<T>(this T[] a, T x, bool isSorted = false) where T : IComparable
+        public static int BinarySearch<T>(this T[] array, T x, bool isSorted = false) where T : IComparable
         {
             if(!isSorted)
-                System.Array.Sort(a);
+                System.Array.Sort(array);
             int left = 0;
-            int right = a.Length - 1;
+            int right = array.Length - 1;
             while (left <= right)
             {
                 int mid = left + (right - left) / 2;
-                int diff = a[mid].CompareTo(x);
+                int diff = array[mid].CompareTo(x);
                 if (diff == 0)
                 {
                     return mid;
@@ -107,6 +107,81 @@ namespace Algorithm.Array
                 }
             }
             return -1;
+        }
+
+        private static void SiftDown<T>(this T[] array, int start, int last) where T : IComparable
+        {
+            int parent = start;
+            int lastParent = (last-1) / 2;
+            while (parent <= lastParent)
+            {
+                int max = parent;
+                int left = 2 * parent + 1;
+                if (array[max].CompareTo(array[left]) < 0)
+                {
+                    max = left;
+                }
+                int right = 2 * parent + 2;
+                if (right <= last && array[max].CompareTo(array[right]) < 0)
+                {
+                    max = right;
+                }
+                if (max != parent)
+                {
+                    T tmp = array[parent];
+                    array[parent] = array[max];
+                    array[max] = tmp;
+                    parent = max;
+                }
+                else
+                {
+                    break; 
+                }
+            }
+        }
+
+        /// <summary>
+        /// Build a heap out of an array.
+        /// </summary>
+        /// <typeparam name="T">The element type of the array.</typeparam>
+        /// <param name="array">The array object</param>
+        /// <param name="last">A zero-based index of the last element of the heap</param>
+        public static void Heapify<T>(this T[] array, int last = -1) where T : IComparable
+        {
+            if (last < -1 || last >= array.Length)
+                throw new ArgumentOutOfRangeException("last");
+            if(last == -1)
+                last = array.Length-1;
+            int start = (last - 1) / 2;
+            while (start >= 0)
+            {
+                array.SiftDown(start, last);
+                start--;
+            }
+        }
+
+        /// <summary>
+        /// Get the top n element of an array.
+        /// </summary>
+        /// <typeparam name="T">Element type.</typeparam>
+        /// <param name="array">The array contains comparable data.</param>
+        /// <param name="n">The number of top elements to retrieve.</param>
+        /// <returns>The top n elements enumerable</returns>
+        public static IEnumerable<T> Top<T>(this T[] array, int n) where T : IComparable
+        {
+            if (n <= 0)
+                throw new ArgumentOutOfRangeException("n");
+            array.Heapify();
+            int last = array.Length - 1;
+            while (n-- > 0)
+            {
+                yield return array[0];
+                T tmp = array[0];
+                array[0] = array[last];
+                array[last] = tmp;
+                last--;
+                array.Heapify(last);
+            }
         }
     }
 }

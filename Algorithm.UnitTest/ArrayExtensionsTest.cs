@@ -8,7 +8,7 @@ using Algorithm.Array;
 namespace Algorithm.UnitTest
 {
     [TestClass]
-    public class ArrayIntersectionTest
+    public class ArrayExtensionsTest
     {
         [TestMethod, TestCategory("Array")]
         public void IntersectionTest()
@@ -23,6 +23,22 @@ namespace Algorithm.UnitTest
                 Debug.WriteLine(i);
                 Assert.AreEqual(rhs[idx], i);
                 idx++;
+            }
+        }
+
+        [TestMethod, TestCategory("Array")]
+        public void TopTest()
+        {
+            int max = 10;
+            int[] array = Enumerable.Range(1, max).ToArray();
+            int N = 3;
+            var actual = array.Top(N).ToArray();
+            Assert.AreEqual(N, actual.Length);
+            for (int i = 0; i < actual.Length; i++)
+            {
+                Debug.WriteLine("TOP {0} : {1}", i+1, actual[i]);
+                Assert.AreEqual(max, actual[i]);
+                max--;
             }
         }
     }

@@ -57,7 +57,7 @@
     <Compile Include="IListCombinationTest.cs" />
     <Compile Include="ConceptualSinglyLinkedListManipulationTest.cs" />
     <Compile Include="ConceptualSinglyLinkedListConstructionTest.cs" />
-    <Compile Include="ArrayIntersectionTest.cs" />
+    <Compile Include="ArrayExtensionsTest.cs" />
     <Compile Include="ConceptualBinaryTreeTest.cs" />
     <Compile Include="StringManipulationTest.cs" />
     <Compile Include="StringCheckingTest.cs" />
