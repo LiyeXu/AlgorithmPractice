@@ -145,13 +145,9 @@ namespace Algorithm.Array
         /// </summary>
         /// <typeparam name="T">The element type of the array.</typeparam>
         /// <param name="array">The array object</param>
-        /// <param name="last">A zero-based index of the last element of the heap</param>
-        public static void Heapify<T>(this T[] array, int last = -1) where T : IComparable
+        public static void Heapify<T>(this T[] array) where T : IComparable
         {
-            if (last < -1 || last >= array.Length)
-                throw new ArgumentOutOfRangeException("last");
-            if(last == -1)
-                last = array.Length-1;
+            int last = array.Length-1;
             int start = (last - 1) / 2;
             while (start >= 0)
             {
@@ -180,7 +176,7 @@ namespace Algorithm.Array
                 array[0] = array[last];
                 array[last] = tmp;
                 last--;
-                array.Heapify(last);
+                array.SiftDown(0, last);
             }
         }
     }
