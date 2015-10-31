@@ -146,5 +146,18 @@ namespace Algorithm.String
             result += p * s[end - 1];
             return result;
         }
+
+        public static int[] SuffixArray(this string str)
+        {
+            List<Tuple<int, string>> list = new List<Tuple<int, string>>();
+            for (int i = 0; i < str.Length; i++)
+            {
+                var suffix = str.Substring(i, str.Length - i);
+                list.Add(new Tuple<int,string>(i, suffix));
+            }
+            var comparision = new Comparison<Tuple<int, string>>((lhs, rhs) => lhs.Item2.CompareTo(rhs.Item2));
+            list.Sort(comparision);
+            return (from i in list select i.Item1).ToArray();
+        }
     }
 }

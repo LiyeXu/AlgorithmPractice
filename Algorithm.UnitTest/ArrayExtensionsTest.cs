@@ -41,5 +41,26 @@ namespace Algorithm.UnitTest
                 max--;
             }
         }
+
+        [TestMethod, TestCategory("Array")]
+        public void CountTest()
+        {
+            int[] array = new[] { 1, 2, 3, 4, 5, 5, 5, 5, 5 ,6, 7, 8, 9 };
+            var actual = array.CountOrdered(5);
+            Debug.WriteLine(actual);
+            Assert.AreEqual(5, actual);
+            
+            actual = array.CountOrdered(1);
+            Debug.WriteLine(actual);
+            Assert.AreEqual(1, actual);
+
+            actual = array.CountOrdered(9);
+            Debug.WriteLine(actual);
+            Assert.AreEqual(1, actual);
+
+            actual = array.CountOrdered(-1);
+            Debug.WriteLine(actual);
+            Assert.AreEqual(0, actual);
+        }
     }
 }

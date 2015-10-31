@@ -51,6 +51,7 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="ListExtensionsTest.cs" />
     <Compile Include="BinarySearchTreeTest.cs" />
     <Compile Include="NumericsTest.cs" />
     <Compile Include="ConceptualSinglyLinkedListCheckingTest.cs" />

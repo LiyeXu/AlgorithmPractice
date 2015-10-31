@@ -15,7 +15,19 @@ namespace Algorithm.Array
         /// <param name="lhs">The input array.</param>
         /// <param name="rhs">The input array.</param>
         /// <returns>A IEnumerable<T> of the intersection</returns>
-        public static IEnumerable<T> GetIntersection<T>(this T[] lhs, T[] rhs) where T : IComparable
+        public static IEnumerable<T> GetIntersection0<T>(this T[] lhs, T[] rhs) where T : IComparable
+        {
+            return lhs.Intersect(rhs);
+        }
+
+        /// <summary>
+        /// Get the intersection part of of two arrays, the orginal arrays will be sorted first.
+        /// </summary>
+        /// <typeparam name="T">Array element typ.e</typeparam>
+        /// <param name="lhs">The input array.</param>
+        /// <param name="rhs">The input array.</param>
+        /// <returns>A IEnumerable<T> of the intersection</returns>
+        public static IEnumerable<T> GetIntersection1<T>(this T[] lhs, T[] rhs) where T : IComparable
         {
             if (lhs == null || lhs.Length == 0 || rhs == null || rhs.Length == 0)
                 yield break;
@@ -91,7 +103,7 @@ namespace Algorithm.Array
             int right = array.Length - 1;
             while (left <= right)
             {
-                int mid = left + (right - left) / 2;
+                int mid = left + ((right - left) >> 1);
                 int diff = array[mid].CompareTo(x);
                 if (diff == 0)
                 {
@@ -109,10 +121,59 @@ namespace Algorithm.Array
             return -1;
         }
 
+        /// <summary>
+        /// Find a zero-based index of the lower or upper boundary of a range of repeated elements in the array.
+        /// </summary>
+        /// <typeparam name="T">Array element type.</typeparam>
+        /// <param name="array">The array object to be searched.</param>
+        /// <param name="x">The element to be searched with.</param>
+        /// <param name="isSorted">Whether the array object is sorted already.</param>
+        /// <param name="isFindLowerBoundary">To search the lower or upper boundary.</param>
+        /// <returns>Returns the lower or upper boundary of the repeated range if there is one, otherwise returns -1.</returns>
+        public static int BinarySearchBoundary<T>(this T[] array, T x, bool isSorted = false, bool isFindLowerBoundary = true) where T : IComparable
+        {
+            if (!isSorted)
+                System.Array.Sort(array);
+            int left = 0;
+            int right = array.Length - 1;
+            while (left <= right)
+            {
+                int mid = left + ((right - left) >> 1);
+                int diff = array[mid].CompareTo(x);
+                if (isFindLowerBoundary ? (diff < 0) : (diff <= 0))
+                {
+                    left = mid + 1;
+                }
+                else
+                {
+                    right = mid - 1;
+                }
+            }
+            return left;
+        }
+
+        /// <summary>
+        /// Count how many occurrences of an specified element x exist in the array object.
+        /// </summary>
+        /// <typeparam name="T">Array element type.</typeparam>
+        /// <param name="array">The array object to be searched.</param>
+        /// <param name="x">The element to be searched with.</param>
+        /// <returns>The count of the occurrences.</returns>
+        public static int CountOrdered<T>(this T[] array, T x) where T : IComparable
+        {
+            int l = array.BinarySearchBoundary(x, isSorted: true, isFindLowerBoundary: true);
+            int r = array.BinarySearchBoundary(x, isSorted: true, isFindLowerBoundary: false);
+            return r - l;
+        }
+
         private static void SiftDown<T>(this T[] array, int start, int last) where T : IComparable
         {
+            if (start < 0 || start >= array.Length)
+                throw new ArgumentOutOfRangeException("start");
+            if (last < start || last >= array.Length)
+                throw new ArgumentOutOfRangeException("last");
             int parent = start;
-            int lastParent = (last-1) / 2;
+            int lastParent = (last-1) >> 1;
             while (parent <= lastParent)
             {
                 int max = parent;
@@ -148,7 +209,7 @@ namespace Algorithm.Array
         public static void Heapify<T>(this T[] array) where T : IComparable
         {
             int last = array.Length-1;
-            int start = (last - 1) / 2;
+            int start = (last - 1) >> 1;
             while (start >= 0)
             {
                 array.SiftDown(start, last);
@@ -164,8 +225,8 @@ namespace Algorithm.Array
         /// <param name="n">The number of top elements to retrieve.</param>
         /// <returns>The top n elements enumerable</returns>
         public static IEnumerable<T> Top<T>(this T[] array, int n) where T : IComparable
-        {
-            if (n <= 0)
+        {            
+            if (n <= 0 || n > array.Length)
                 throw new ArgumentOutOfRangeException("n");
             array.Heapify();
             int last = array.Length - 1;
