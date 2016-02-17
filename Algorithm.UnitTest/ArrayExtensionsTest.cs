@@ -13,8 +13,10 @@ namespace Algorithm.UnitTest
         [TestMethod, TestCategory("Array")]
         public void IntersectionTest()
         {
-            int[] lhs = new[] { 1, 2, 3, 4, 5, 6, 7, 8, 9 };
-            int[] rhs = new[] { 1, 3, 5, 7, 9 };
+            int[] lhs = new[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+
+            int[] rhs = new[] { 1, 3, 5, 7, 9, 10 };
+
             //var intersection = lhs.GetIntersection(rhs);
             var intersection = rhs.GetIntersection2(lhs);
             int idx = 0;
