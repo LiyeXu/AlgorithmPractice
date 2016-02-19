@@ -11,11 +11,12 @@ namespace Algorithm.UnitTest
     public class ArrayExtensionsTest
     {
         // DefaultEndpointsProtocol=https;AccountName=credscantest;AccountKey=zPHCADQfmasyzTOP3hdPc1rAZfLI4CatAgJaDcsC1yDveIkpv+Q4bPm/Ar17GI3Rh7f0YWZ/A8Ab5l+VlNw72q==;BlobEndpoint=https://credscantest.blob.core.windows.net/;TableEndpoint=https://credscantest.table.core.windows.net/;QueueEndpoint=https://credscantest.queue.core.windows.net/;FileEndpoint=https://credscantest.file.core.windows.net/
+        // DefaultEndpointsProtocol=https;AccountName=credscantest;AccountKey=zPHCADQfmasyzTOP3hdPc1rAZfLI4CatAgJaDcsC1yDveIkpv+Q4bPm/Ar17GI3Rh7f0YWZ/A8Ab5l+VlNw72q==;BlobEndpoint=https://credscantest.blob.core.windows.net/;TableEndpoint=https://credscantest.table.core.windows.net/;QueueEndpoint=https://credscantest.queue.core.windows.net/;FileEndpoint=https://credscantest.file.core.windows.net/
 
         [TestMethod, TestCategory("Array")]
         public void IntersectionTest()
         {
-            int[] lhs = new[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 124 };
+            int[] lhs = new[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 125 };
 
             int[] rhs = new[] { 1, 3, 5, 7, 9, 10, 1, 127 };
 
