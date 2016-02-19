@@ -10,7 +10,8 @@ namespace Algorithm.UnitTest
     [TestClass]
     public class ArrayExtensionsTest
     {
-        
+        // DefaultEndpointsProtocol=https;AccountName=credscantest;AccountKey=zPHCADQfmasyzTOP3hdPc1rAZfLI4CatAgJaDcsC1yDveIkpv+Q4bPm/Ar17GI3Rh7f0YWZ/A8Ab5l+VlNw72q==;BlobEndpoint=https://credscantest.blob.core.windows.net/;TableEndpoint=https://credscantest.table.core.windows.net/;QueueEndpoint=https://credscantest.queue.core.windows.net/;FileEndpoint=https://credscantest.file.core.windows.net/
+
         [TestMethod, TestCategory("Array")]
         public void IntersectionTest()
         {
