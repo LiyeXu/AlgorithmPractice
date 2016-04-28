@@ -44,16 +44,16 @@ namespace Algorithm.Tree
             if (tree == null)
                 return;
             action(tree);
-            tree.LeftChild.TraverseInOrder(action);
-            tree.RightChild.TraverseInOrder(action);
+            tree.LeftChild.TraversePreOrder(action);
+            tree.RightChild.TraversePreOrder(action);
         }
 
         public static void TraversePostOrder<T>(this IBinaryTree<T> tree, Action<IBinaryTree<T>> action)
         {
             if (tree == null)
                 return;
-            tree.LeftChild.TraverseInOrder(action);
-            tree.RightChild.TraverseInOrder(action);
+            tree.LeftChild.TraversePostOrder(action);
+            tree.RightChild.TraversePostOrder(action);
             action(tree);
         }
     }
